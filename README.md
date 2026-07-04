@@ -37,12 +37,27 @@ Then scan the QR code with Expo Go, or press `i` / `a` in the terminal to open t
 
 ```
 .
-├── App.tsx        # Root component
-├── index.ts       # App entry point (registers the root component)
-├── app.json       # Expo app configuration
-├── tsconfig.json  # TypeScript configuration
-└── assets/        # Icons and images
+├── App.tsx                # Root component (renders ProductList)
+├── index.ts               # App entry point (registers the root component)
+├── src/
+│   ├── models/
+│   │   └── Product.ts      # Product data model (fakestoreapi shape)
+│   ├── pages/
+│   │   └── ProductList/
+│   │       ├── ProductList.tsx     # Fetches products and renders a FlatList
+│   │       └── ProductList.style.ts
+│   └── components/
+│       └── ProductCard/
+│           ├── ProductCard.tsx     # Renders a product image, title and price
+│           └── ProductCard.style.ts
+├── app.json               # Expo app configuration
+├── tsconfig.json          # TypeScript configuration
+└── assets/                # Icons and images
 ```
+
+## Data source
+
+Products are fetched from the [Fake Store API](https://fakestoreapi.com/products).
 
 ## License
 
