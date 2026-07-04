@@ -1,9 +1,13 @@
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { useProduct } from '../../hooks/useProduct';
+import type { RootStackParamList } from '../../navigation/types';
 import { styles } from './ProductList.style';
 
-export default function ProductList() {
+type Props = NativeStackScreenProps<RootStackParamList, 'ProductList'>;
+
+export default function ProductList({ navigation }: Props) {
   const { products, loading, refreshing, error, refresh } = useProduct();
 
   if (loading) {
@@ -26,7 +30,12 @@ export default function ProductList() {
     <FlatList
       data={products}
       keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <ProductCard product={item} />}
+      renderItem={({ item }) => (
+        <ProductCard
+          product={item}
+          onPress={() => navigation.navigate('ProductDetail', { product: item })}
+        />
+      )}
       contentContainerStyle={styles.list}
       onRefresh={refresh}
       refreshing={refreshing}

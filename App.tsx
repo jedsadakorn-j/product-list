@@ -1,22 +1,31 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import type { RootStackParamList } from './src/navigation/types';
+import ProductDetail from './src/pages/ProductDetail/ProductDetail';
 import ProductList from './src/pages/ProductList/ProductList';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <ProductList />
-        <StatusBar style="auto" />
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="ProductList">
+          <Stack.Screen
+            name="ProductList"
+            component={ProductList}
+            options={{ title: 'Products' }}
+          />
+          <Stack.Screen
+            name="ProductDetail"
+            component={ProductDetail}
+            options={{ title: 'Details' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style="auto" />
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-});
