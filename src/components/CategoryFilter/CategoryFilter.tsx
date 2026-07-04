@@ -16,6 +16,7 @@ export default function CategoryFilter({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
+      style={styles.scroll}
       contentContainerStyle={styles.container}
     >
       {categories.map((category) => {

@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  scroll: {
+    flexGrow: 0,
+  },
   container: {
     paddingHorizontal: 16,
     paddingVertical: 12,

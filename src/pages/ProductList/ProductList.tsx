@@ -59,7 +59,8 @@ export default function ProductList({ navigation }: Props) {
             onPress={() => navigation.navigate('ProductDetail', { product: item })}
           />
         )}
-        contentContainerStyle={styles.list}
+        style={styles.list}
+        contentContainerStyle={styles.listContent}
         onRefresh={refresh}
         refreshing={refreshing}
         ListEmptyComponent={<Text style={styles.empty}>No products found.</Text>}
