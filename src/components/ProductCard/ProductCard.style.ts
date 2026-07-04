@@ -35,4 +35,9 @@ export const styles = StyleSheet.create({
     color: '#2e7d32',
     marginTop: 8,
   },
+  heart: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 8,
+  },
 });

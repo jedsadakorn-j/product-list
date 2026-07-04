@@ -1,8 +1,18 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   list: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  empty: {
+    textAlign: 'center',
+    marginTop: 32,
+    fontSize: 15,
+    color: '#888',
   },
   center: {
     flex: 1,
